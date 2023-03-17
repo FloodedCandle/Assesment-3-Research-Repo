@@ -19,9 +19,6 @@ class cat():
     def sound(self):
         print("MEOWWWWW IM IN PAIN")
 
-    # def hunt(self):
-    #     print("i am hunting")
-
 
 class DomesticCat(cat):
     owner: None
@@ -44,13 +41,14 @@ class WildCat(cat):
     def sound(self):
         print("")
 
+
 cat1 = WildCat("jack", 7, True)
 
 cat1.display()
 cat1.sound()
 
-# cat2 = DomesticCat("timm",5 ,False,"jack")
+cat2 = DomesticCat("timm","jack" ,6,True)
 
 
-# cat2.display()
-# cat2.sound() 
+cat2.display()
+cat2.sound() 
