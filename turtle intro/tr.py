@@ -1,5 +1,7 @@
 from turtle import *
 pensize(2)
+speed(10)
+
 def drawsquare():
     forward(100)    
     left(70)   
@@ -22,19 +24,7 @@ def drawdoor():
     left(90)
     forward(50)
 
-def drawhouse():
-    for prop in range(6):
-        drawsquare()
-        left(20)
-    drawtriangle()
-    drawdoor()
-
-
-author = "jeffrey"
-
-if __name__ == "__main__":
-    drawhouse()
-    
+def drawtree():
     right(90)
     forward(200)
 
@@ -43,5 +33,20 @@ if __name__ == "__main__":
 
     right(90)
     circle(20)
+
+def drawhouse():
+    for prop in range(6):
+        drawsquare()
+        left(20)
+    drawtriangle()
+    drawdoor()
+    drawtree()
+
+
+
+author = "jeffrey"
+
+if __name__ == "__main__":
+    drawhouse()
 
     exitonclick()
