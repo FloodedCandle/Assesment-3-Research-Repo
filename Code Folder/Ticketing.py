@@ -26,13 +26,14 @@ class TicketSystem():
 
     def CreatingTicket():
         print(bcolors.OKBLUE +"\n ========== TICKETS SUBMITTED ==========\n" + bcolors.ENDC)
-        Ticket_Number = input("Ticket Number: ")
         Ticket_Creator = input("Ticket Creator: ")
         Staff_ID = input("Staff ID: ")
         Email = input("Email: ")
         Description = input("Description: ")
-        Response = None
-        Ticket_Status = None
+
+    # def display():
+    #     for t in Ticket
+        
         
     
 class Ticket():
@@ -44,13 +45,13 @@ class Ticket():
     Response = None
     Ticket_Status =None
 
-    def __init__(self, Ticket_Number, Ticket_Creator, Staff_ID, Email, Description, Response):
+    def __init__(self, Ticket_Number, Ticket_Creator, Staff_ID, Email, Description, ):
         self.Ticket_Number = Ticket_Number
         self.Ticket_Creator = Ticket_Creator
         self.Staff_ID = Staff_ID
         self.Email = Email
         self.Description = Description
-        self.Response = Response
+        self.Response = "None"
         self.Ticket_Status = "Submitted"
 
     def display(self):
@@ -66,5 +67,3 @@ class Ticket():
 
 # author = "jeffrey"
 
-# # if __name__ == "__main__":
-# #     menu()
