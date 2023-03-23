@@ -15,24 +15,35 @@ def menu():
     print(bcolors.OKBLUE + "\n ========== TICKET SYSTEM ==========\n" + bcolors.ENDC)
     print("[1] Display all tickets.")
     print("[2] Submit new ticket.")
-    print("[3] provide response to ticket.")
+    print("[3] rovide response to ticket.p")
     print("[4] reopen ticket.")
     print("[5] Display Statistics.")
     print("[0] Exit.")
 
 
 class TicketSystem():
+
+    def __init__(self):
+        self.tickets = []
+        # self.ticket_count = 2000
+        # self.ticket_amount = 0
     
 
-    def CreatingTicket():
+    def CreatingTicket(self):
         print(bcolors.OKBLUE +"\n ========== TICKETS SUBMITTED ==========\n" + bcolors.ENDC)
         Ticket_Creator = input("Ticket Creator: ")
         Staff_ID = input("Staff ID: ")
         Email = input("Email: ")
         Description = input("Description: ")
 
-    # def display():
-    #     for t in Ticket
+        t = Ticket(Ticket_Creator, Staff_ID, Email, Description,)
+        self.tickets.append(t)
+
+    def print_tickets(self):
+           
+        for t in self.tickets:
+           print(list(t))
+
         
         
     
@@ -45,7 +56,7 @@ class Ticket():
     Response = None
     Ticket_Status =None
 
-    def __init__(self, Ticket_Number, Ticket_Creator, Staff_ID, Email, Description, ):
+    def __init__(self, Ticket_Creator, Staff_ID, Email, Description, Ticket_Number="", ):
         self.Ticket_Number = Ticket_Number
         self.Ticket_Creator = Ticket_Creator
         self.Staff_ID = Staff_ID
@@ -65,5 +76,5 @@ class Ticket():
         print("Ticket Status: "+ self.Ticket_Status)
 
 
-# author = "jeffrey"
+
 
