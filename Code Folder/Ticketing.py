@@ -22,12 +22,7 @@ def menu():
 
 
 class TicketSystem():
-
-    def __init__(self):
-        self.tickets = []
-        # self.ticket_count = 2000
-        # self.ticket_amount = 0
-    
+        
 
     def CreatingTicket(self):
         print(bcolors.OKBLUE +"\n ========== TICKETS SUBMITTED ==========\n" + bcolors.ENDC)
@@ -37,12 +32,11 @@ class TicketSystem():
         Description = input("Description: ")
 
         t = Ticket(Ticket_Creator, Staff_ID, Email, Description,)
-        self.tickets.append(t)
 
-    def print_tickets(self):
+    # def print_tickets(self):
            
-        for t in self.tickets:
-           print(list(t))
+    #     for t in t:
+    #        Ticket.display()
 
         
         
