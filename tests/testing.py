@@ -1,126 +1,172 @@
-class Ticket:
-    ticket_counter = 0
-    tickets_created = []
-    tickets_resolved = []
-    tickets_open = []
-    
-    def __init__(self, staff_id, creator_name, contact_email, description):
+import random
+
+
+class Ticket():
+    ticket_count = 2000
+
+    def __init__(self, ticket_creator, staff_id, email, description):
+        self.ticket_number = str(Ticket.ticket_count)
+        self.ticket_creator = ticket_creator
         self.staff_id = staff_id
-        self.creator_name = creator_name
-        self.contact_email = contact_email
+        self.email = email
         self.description = description
-        Ticket.ticket_counter += 1
-        self.ticket_number = Ticket.ticket_counter + 2000
-        self.response = "Not Yet Provided"
-        self.status = "Open"
-        Ticket.tickets_created.append(self)
-        Ticket.tickets_open.append(self)
-    
-    def resolve_ticket(self, response):
-        if "Password Change" in self.description:
-            new_password = self.generate_password()
-            self.response = "New password generated: " + new_password
-        else:
-            self.response = response
-        self.status = "Closed"
-        Ticket.tickets_resolved.append(self)
-        Ticket.tickets_open.remove(self)
-    
-    def reopen_ticket(self):
-        self.status = "Reopened"
-        Ticket.tickets_resolved.remove(self)
-        Ticket.tickets_open.append(self)
-    
-    def generate_password(self):
-        password = self.staff_id[:2] + self.creator_name[:3]
-        return password
-    
-    def display_ticket(self):
-        print("Ticket Number:", self.ticket_number)
-        print("Ticket Creator:", self.creator_name)
-        print("Staff ID:", self.staff_id)
-        print("Email Address:", self.contact_email)
-        print("Description:", self.description)
+        self.response = "not provided yet"
+        self.status = "Submitted"
+        Ticket.ticket_count += 1
+
+    def display(self):
+        # print(f"Ticket Number: {self.ticket_number}")
+        # print(f"Ticket Creator: {self.ticket_creator}")
+        # print(f"Staff ID: {self.staff_id}")
+        # print(f"Email: {self.email}")
+        # print(f"Description: {self.description}")
+
+        print("\n************************")
+        print("Ticket number:",self.ticket_number)
+        print("Staff Id: ", self.staff_id)
+        print("Name: ",self.ticket_creator)
+        print("Email: ",self.email)
+        print("Issue: ",self.description)
         print("Response:", self.response)
-        print("Ticket Status:", self.status)
-        print()
-    
-    @classmethod
-    def ticket_stats(cls):
-        print("Tickets Created:", len(cls.tickets_created))
-        print("Tickets Resolved:", len(cls.tickets_resolved))
-        print("Tickets To Solve:", len(cls.tickets_open))
-        print()
-    
-def main():
-    ticket1 = Ticket("INNAM", "Inna", "inna@whitecliffe.co.nz", "My monitor stopped working")
-    ticket2 = Ticket("MARIAH", "Maria", "maria@whitecliffe.co.nz", "Request for a videocamera to conduct webinars")
-    ticket3 = Ticket("JOHNS", "John", "john@whitecliffe.co.nz", "Password change")
-    ticket3.resolve_ticket("")
-    
-    Ticket.ticket_stats()
-    
-    ticket1.resolve_ticket("The monitor has been replaced.")
-    
-    Ticket.ticket_stats()
-    
-    ticket2.reopen_ticket()
-    
-    Ticket.ticket_stats()
-    
-    Ticket.tickets_created[0].display_ticket()
-    Ticket.tickets_created[1].display_ticket()
-    Ticket.tickets_created[2].display_ticket()
+        print("Status:",self.status)
+        # print("Response: ",self.response)
+        # print("Ticket Status: ", self.status)
+        print("************************\n")
 
-if __name__ == '__main__':
+       
+class TicketSystem():
+    tickets = []
+
+    tickets = [Ticket("Inna", "INNAM", "inna@whitecliffe.co.nz", "My monitor stopped working"), 
+               Ticket("Maria", "MARIAH", "maria@whitecliffe.co.nz", "Request for a videocamera to conduct webinars")]
+
     
 
-    main
+    
+    def create_ticket():
+        print("\n========== CREATING NEW TICKET ==========\n")
+        ticket_creator = input("Ticket Creator: ")
+        staff_id = input("Staff ID: ")
+        email = input("Email: ")
+        description = input("Description: ")
+        if "password change" in description.lower():
+            response = staff_id[:2] + ticket_creator[:3]
+            new_ticket = Ticket(ticket_creator, staff_id, email, description)
+            new_ticket.response = response
+        else:
+            new_ticket = Ticket(ticket_creator, staff_id, email, description)
+        TicketSystem.tickets.append(new_ticket)
+        print("\nTicket submitted successfully.\n")
 
-    print("\n")
+    
+    def display_tickets():
+        print("\n========== ALL TICKETS ==========\n")
+        if not TicketSystem.tickets:
+            print("No tickets found.")
+        else:
+            for ticket in TicketSystem.tickets:
+                ticket.display()
 
-    selection = int(input(bcolors.OKBLUE +"Enter your option: " + bcolors.ENDC))
-                    
+    
+    def respond_to_ticket():
+        print("\n========== RESPOND TO TICKET ==========\n")
+        ticket_number = input("Enter the ticket number: ")
+        found_ticket = False
+        for ticket in TicketSystem.tickets:
+            if ticket.ticket_number == ticket_number:
+                response = input("Enter your response: ")
+                ticket.response = response
+                ticket.status = "Response Provided"
+                print("\nResponse added successfully.")
+                found_ticket = True
+                break
+        if not found_ticket:
+            print("\nTicket not found.")
+
+    
+    def reopen_ticket():
+        print("\n========== REOPEN TICKET ==========\n")
+        ticket_number = input("Enter the ticket number: ")
+        found_ticket = False
+        for ticket in TicketSystem.tickets:
+            if ticket.ticket_number == ticket_number:
+                ticket.status = "Submitted"
+                print("\nTicket reopened successfully.")
+                found_ticket = True
+                break
+        if not found_ticket:
+            print("\nTicket not found.")
+
+    
+    def display_statistics():
+        print("\n========== STATISTICS ==========\n")
+        print("Total number of tickets:", len(TicketSystem.tickets))
+        submitted_count = 0
+        response_count = 0
+        password_change_count = 0
+        # total_tickes = 0
+        for ticket in TicketSystem.tickets:
+            if ticket.status == "Submitted":
+                submitted_count += 1
+            elif ticket.status == "Response Provided":
+                response_count += 1
+            elif ticket.status == "Password Change":
+                password_change_count += 1
+        print("Number of submitted tickets:", submitted_count)
+        print("Number of tickets with response:", response_count)
+        print("Number of password change tickets:", password_change_count)
+
+
+def menu():
+    print("\n========== TICKET SYSTEM ==========\n")
+    print("[1] Display all tickets.")
+    print("[2] Submit new ticket.")
+    print("[3] Provide response to ticket.")
+    print("[4] Reopen ticket.")
+    print("[5] Display statistics.")
+    print("[0] Exit.")
+
+
+
+if __name__ == "__main__":
+    menu()
+
+    selection = int(input("Enter your option: "))
+        
     while selection != 0:
         if selection == 1:
             # Display all tickets.
-            print("hitiing display")
-            
+            TicketSystem.display_tickets()
             menu()
-            
+                
 
         elif selection == 2:
             # creating new tickets
-            ts.CreatingTicket()
+            TicketSystem.create_ticket()
             menu()
-            ticket_count+=1
-            
 
         elif selection == 3:
-            # rovide response to ticket.
-            print()
-            
-
-        elif selection == 4:
-            # reopen ticket.
-            print()
-            
-
-        elif selection == 5:
-            # Display Statistics.
-            print()
-            
-
-        else:
-            print()
-            print("Invalid option. Choose from [0-5]")
+            # provide response to ticket.
+            print("hitting response to ticket")
+            TicketSystem.respond_to_ticket()
             menu()
             
+        elif selection == 4:
+            # reopen ticket.
+            print("hitting reopen ticket")
+            TicketSystem.reopen_ticket()
+            menu()
 
-        # print("\n")
-        # Ticketing.menu()
-        # print("\n")
+        elif selection == 5:
+            # display statistics.
+            print("hitting statistics")
+            TicketSystem.display_statistics()
+            menu()
+            
+        else:
+            print("\nInvalid option. Choose from [0-5]")
+            menu()
 
-        selection = int(input(bcolors.OKBLUE +"Enter your option: " + bcolors.ENDC))
-                        
-    print("system shutdown")
+        selection = int(input("Enter your option: "))
+
+    print("\nSystem shutdown.")

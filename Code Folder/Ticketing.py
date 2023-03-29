@@ -10,19 +10,8 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-
-def menu():
-    print(bcolors.OKBLUE + "\n ========== TICKET SYSTEM ==========\n" + bcolors.ENDC)
-    print("[1] Display all tickets.")
-    print("[2] Submit new ticket.")
-    print("[3] rovide response to ticket.p")
-    print("[4] reopen ticket.")
-    print("[5] Display Statistics.")
-    print("[0] Exit.")
-
-
 class TicketSystem():
-        
+            
 
     def CreatingTicket(self):
         print(bcolors.OKBLUE +"\n ========== TICKETS SUBMITTED ==========\n" + bcolors.ENDC)
@@ -31,17 +20,15 @@ class TicketSystem():
         Email = input("Email: ")
         Description = input("Description: ")
 
-        t = Ticket(Ticket_Creator, Staff_ID, Email, Description,)
-
-    # def print_tickets(self):
-           
-    #     for t in t:
-    #        Ticket.display()
-
-        
-        
     
+
+    
+ 
 class Ticket():
+
+    
+
+
     Ticket_Number = None
     Ticket_Creator = None
     Staff_ID = None
@@ -59,6 +46,10 @@ class Ticket():
         self.Response = "None"
         self.Ticket_Status = "Submitted"
 
+    
+
+
+
     def display(self):
         print(bcolors.OKBLUE + "\n ========== TICKETS SUBMITTED ==========\n" + bcolors.ENDC)
         print("Ticket Number: "+ self.Ticket_Number)
@@ -68,7 +59,13 @@ class Ticket():
         print("Description: "+ self.Description)
         print("Response: "+ self.Response)
         print("Ticket Status: "+ self.Ticket_Status)
+            
+    Tickets = (Ticket_Creator, Staff_ID, Email, Description)
 
+
+    def tickets():
+        for ticket in Ticket.Tickets():
+            Ticket.display(ticket)
 
 
 
