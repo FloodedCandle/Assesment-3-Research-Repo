@@ -1,23 +1,26 @@
 name = input('type your name: ')
 print('welcome to this choose you own adenture', name ,'!')
-
-answer = input('You are on a dirt road, is has come to an end and you can go left or right. where would you like to go? ').lower
-
-# if answer == 'swim':
+# if answer == '':
 #         print('')
-#     elif answer == 'walk':
+#     elif answer == '':
 #         print('')
 #     else:
 #         print('not a valid input.')
 
+answer = input('You are on a dirt road, is has come to an end and you can go left or right. where would you like to go?(left,right): ').lower
 
 if answer == 'left':
-    answer = input("you come to a river, you can walk around it or swim across? type walk to go around and swim to swim across: ").lower
-
+    answer = input("you come to a lake, you can walk around it or swim across?(walk,swim): ").lower
     if answer == 'swim':
-        print('you swam across the river and got swept away. "YOUR DIED"')
+        print('you swam across the lake and got tired and drowned. "YOUR DIED"')
     elif answer == 'walk':
-        print('you walked around the river for a couple of hours. you ran out of food rations and starved to death. "YOUr DEAD"')
+        answer = input('you walked around the lake. while walking you com across a abandon looking cabin. will you continue walking or explore the cabin?(continue,explore): ').lower
+        if answer == 'continue':
+            print('you deside to walk past the cabin and continue going around the lake.')
+        elif answer == 'explore':
+            print('')
+        else:
+            print('not a valid input.')
     else:
         print('not a valid input.')
 elif answer == 'right':
