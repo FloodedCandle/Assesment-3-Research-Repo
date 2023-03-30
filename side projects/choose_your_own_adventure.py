@@ -1,11 +1,5 @@
 name = input('type your name: ')
 print('welcome to this choose you own adenture', name ,'!')
-# if answer == '':
-#         print('')
-#     elif answer == '':
-#         print('')
-#     else:
-#         print('not a valid input.')
 
 answer = input('You are on a dirt road, is has come to an end and you can go left or right. where would you like to go?(left,right): ').lower
 
@@ -18,7 +12,14 @@ if answer == 'left':
         if answer == 'continue':
             print('you deside to walk past the cabin and continue going around the lake.')
         elif answer == 'explore':
-            print('')
+            answer = input('you deside to explore the cabin, inside you see that the cabin has been abandoned for quite some time. will you continue exploring or head back?(coninute,back): ').lower
+            if answer == 'continue':
+                answer = input('while you continue to explore you find a old looking chest and found a "rusty axe" will you take the axe or leave it?(take,leave): ')
+
+            elif answer == 'back':
+                print('you return to the lake side and continue walking...')
+            else:
+                print('not a valid input.')
         else:
             print('not a valid input.')
     else:
@@ -29,7 +30,7 @@ elif answer == 'right':
     if answer == 'back':
         print('you walked back to the main road. "END"')
     elif answer == 'cross':
-        print('you cross the bridge and fall through one of the cracks. "YOUr DEAD"')
+        answer = input('you cross the bridge and see a old traveler with a big bag on there back, on the other side. will you walk past the old traveler or talk to them?(walk,talk): ').lower
     else:
         print('not a valid input.')
 else:

@@ -1,4 +1,5 @@
 "Python Variables - Assign Multiple Values"
+
 "Many Values to Multiple Variables"
 # Python allows you to assign values to multiple variables in one line:
 x , y, z = "yellow" , 'green', 'blue'
@@ -20,3 +21,27 @@ x, y, z = fruits
 print(x)
 print(y)
 print(z)
+
+"OUTPUT VARIABLES"
+#The python print() funcion is often used to output variables.
+x = 'help me'
+print(x)
+#in the print() function, you output multiple variables, separated by a comma:
+x = 'pls '
+y = 'help '
+z = 'me'
+print(x,y,z)
+#u can also use + operator to output multiple variables.
+print(x+y+z)
+#Notice the space character after 'pls ' and 'help ', without them the result would be "plshelpme".
+
+#for numbers, the + character works as a mathematical operator:
+x= 5
+y= 10
+print(x+y)
+
+#The best way to output multiple variables in the print() function is to separate them with commas, which even support different data types:
+
+x = 5
+y = "John"
+print(x, y)
