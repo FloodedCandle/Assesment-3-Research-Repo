@@ -116,7 +116,7 @@ class Enemy(pygame.sprite.Sprite):
     def __init__(self, position):
         super().__init__(enemy_group, all_sprites_group)
         self.image = pygame.image.load("Assesment-3-Research-Repo/Side Projects/TDS/necromancer/hunt/0.png").convert_alpha()
-        self.image = pygame.transform.rotozoom(self.image, 0, 2)
+        self.image = pygame.transform.rotozoom(self.image, 0, ENEMY_SIZE)
 
         self.rect = self.image.get_rect()
         self.rect.center = position

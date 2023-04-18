@@ -19,3 +19,4 @@ BULLET_LIFETIME = 750
 
 # Enemy settings
 ENEMY_SPEED = 4
+ENEMY_SIZE = 1.5
