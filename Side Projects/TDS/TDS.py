@@ -11,14 +11,14 @@ pygame.display.set_caption("TDS")
 clock = pygame.time.Clock()
 
 #load image
-background = pygame.transform.scale(pygame.image.load("C:/Users/20220020/Desktop/school/Assesment-3-Research-Repo/Side Projects/TDS/background/background.png").convert(),  (WIDTH,HIGHT))
+background = pygame.transform.scale(pygame.image.load("Assesment-3-Research-Repo/Side Projects/TDS/background/background.png").convert(),  (WIDTH,HIGHT))
 
 class Player(pygame.sprite.Sprite):
     #player icon
     def __init__(self):
         super().__init__()
         self.pos = pygame.math.Vector2(PLAYER_START_X, PLAYER_START_Y)
-        self.image = pygame.transform.rotozoom(pygame.image.load("C:/Users/20220020/Desktop/school/Assesment-3-Research-Repo/Side Projects/TDS/player/0.png").convert_alpha(), 0, PLAYER_SIZE)
+        self.image = pygame.transform.rotozoom(pygame.image.load("Assesment-3-Research-Repo/Side Projects/TDS/player/0.png").convert_alpha(), 0, PLAYER_SIZE)
         self.base_player_image = self.image
         #checking for collision 
         self.hitbox_rect = self.base_player_image.get_rect(center = self.pos)
@@ -110,7 +110,7 @@ class Bullet(pygame.sprite.Sprite):
     #x and y is the possision of the bullet that we want to spawn it at. Angle is for the direction the player is shooting
     def __init__(self, x, y, angle):
         super().__init__()
-        self.image = pygame.image.load("C:/Users/20220020/Desktop/school/Assesment-3-Research-Repo/Side Projects/TDS/bullet/1.png").convert_alpha()
+        self.image = pygame.image.load("Assesment-3-Research-Repo/Side Projects/TDS/bullet/1.png").convert_alpha()
         #this is for the bullet size for how big it will be in game
         self.image = pygame.transform.rotozoom(self.image, 0, BULLET_SCALE)
         #creates rectangle around our image(bullet)
