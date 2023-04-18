@@ -68,16 +68,6 @@ class Player(pygame.sprite.Sprite):
         else:
             self.shoot = False
 
-    # def is_shooting(self):
-    #     if self.shoot_cooldown == 0:
-    #         self.shoot_cooldown = SHOOT_COOLDOWN
-    #         spawn_bullet_pos = self.pos + self.gun_barrel_offset.rotate(self.angle)
-    #         self.bullet = Bullet(spawn_bullet_pos[0], spawn_bullet_pos[1], self.angle)
-
-    #         all_sprites_group.add(self.bullet)
-    #         bullet_group.add(self.bullet)
-            
-
     def is_shooting(self):
         if self.shoot_cooldown == 0:
             self.shoot_cooldown = SHOOT_COOLDOWN
