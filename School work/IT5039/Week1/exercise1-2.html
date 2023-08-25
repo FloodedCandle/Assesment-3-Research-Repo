@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spending and Saving Monthly</title>
+  <style>
+    table {
+      border: 1px solid black;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+    }
+    caption {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+
+    fieldset {
+      border: 1px solid black;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+    textarea {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      height: 150px;
+    }
+   
+  </style>
+</head>
+<body>
+  <table>
+    <caption>Spending and Saving Monthly</caption>
+    <tr>
+      <th></th>
+      <th>Withdrawn</th>
+      <th>Credit</th>
+      <th>Balance</th>
+    </tr>
+    <tr>
+      <td>January</td>
+      <td>260</td>
+      <td>660</td>
+      <td>400</td>
+    </tr>
+    <tr>
+      <td>February</td>
+      <td>135.55</td>
+      <td>895.20</td>
+      <td>759.65</td>
+    </tr>
+  </table>
+
+  <table>
+    <caption>IT Departments Contacts</caption>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th colspan="2">Phone</th>
+    </tr>
+    <tr>
+      <td>John Doe</td>
+      <td>john.doe@gofly.com</td>
+      <td>02102376835</td>
+      <td>02345623769</td>
+    </tr>
+    <tr>
+      <td>Andre Yan</td>
+      <td>andrew.yan@gofly.com</td>
+      <td>02102376835</td>
+      <td>02345623769</td>
+    </tr>
+  </table>
+
+  <form>
+    <h1>Contact Us</h1>
+    <form>
+        <fieldset>
+          <legend>Contact us</legend>
+          <label for="firstName">First name:</label>
+          <input type="text" id="firstName" name="firstName" required>
+    
+          <label for="lastName">Last name:</label>
+          <input type="text" id="lastName" name="lastName" required>
+    
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+    
+          <label for="feedback">Product feedback:</label>
+          <textarea id="feedback" name="feedback" placeholder="Your feedback..."></textarea>
+          <input type="submit" value="Submit">
+        </fieldset>
+    
+        
+      </form>
+
+</body>
+</html>
